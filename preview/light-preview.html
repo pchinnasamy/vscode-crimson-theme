@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Crimson Red — Light Preview</title>
+<style>
+  body{background:#ffffff;color:#616161;font-family:Consolas,monospace;}
+  .editor{background:#ffffff;border:1px solid #e7e7e7;padding:20px;margin:20px;border-radius:6px}
+  .kw{color:#cc0000;font-weight:600} /* keyword */
+  .fn{color:#004b88}            /* function */
+  .type{color:#a16800}          /* type/namespace */
+  .str{color:#527000}           /* string (current light choice) */
+  .num{color:#116200}           /* numeric/constant */
+  .comment{color:#7b7b7b;font-style:italic}
+  .punct{color:#000000}
+  .line{white-space:pre}
+  .title{font-size:18px;margin:10px 0 0 20px;color:#323232}
+</style>
+</head>
+<body>
+  <div class="title">Crimson Red — Light preview</div>
+  <div class="editor">
+<code class="line"><span class="comment">// Example JavaScript</span></code>
+<code class="line"><span class="kw">const</span> <span class="fn">greet</span> = (<span class="punct">name</span>) => {</code>
+<code class="line">  <span class="kw">let</span> <span class="punct">msg</span> = <span class="str">"Hello, "</span> + <span class="punct">name</span>;</code>
+<code class="line">  console.<span class="fn">log</span>(<span class="punct">msg</span>);</code>
+<code class="line">};</code>
+<code class="line"></code>
+<code class="line"><span class="kw">class</span> <span class="type">Person</span> {</code>
+<code class="line">  <span class="kw">constructor</span>(<span class="punct">name</span>){ this.<span class="punct">name</span> = <span class="punct">name</span>; }</code>
+<code class="line">}</code>
+  </div>
+</body>
+</html>

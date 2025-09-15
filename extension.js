@@ -1,0 +1,1 @@
+// This file can be empty for a theme extension.
