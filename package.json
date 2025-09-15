@@ -2,7 +2,7 @@
   "name": "light-red",
   "displayName": "Crimson Red",
   "description": "A light theme with Red borders for Visual Studio Code.",
-  "version": "0.0.22",
+  "version": "0.0.30",
   "publisher": "PChin",
   "engines": {
     "vscode": "^1.80.0"
