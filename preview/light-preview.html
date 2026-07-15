@@ -4,32 +4,135 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Crimson Red — Light Preview</title>
+<!--
+  Static approximation of the Crimson Red Light themes.
+  Colors mirror build-themes.js (LIGHT palette). Regenerate that, not this.
+-->
 <style>
-  body{background:#ffffff;color:#616161;font-family:Consolas,monospace;}
-  .editor{background:#ffffff;border:1px solid #e7e7e7;padding:20px;margin:20px;border-radius:6px}
-  .kw{color:#cc0000;font-weight:600} /* keyword */
-  .fn{color:#004b88}            /* function */
-  .type{color:#a16800}          /* type/namespace */
-  .str{color:#527000}           /* string (current light choice) */
-  .num{color:#116200}           /* numeric/constant */
-  .comment{color:#7b7b7b;font-style:italic}
-  .punct{color:#000000}
-  .line{white-space:pre}
-  .title{font-size:18px;margin:10px 0 0 20px;color:#323232}
+  :root{
+    --bg:#ffffff; --fg:#000000; --chrome:#ffffff; --tabbg:#ffffff;
+    --border:#e5e5e5; --accent:#cc0000; --gutter:#237893; --gutter-active:#cc0000;
+    --line:#fdf3f3; --sel:#fddd7e;
+    --kw:#cc0000; --fn:#00627a; --type:#a16800; --str:#527000;
+    --num:#116200; --comment:#7b7b7b; --punct:#000000;
+    --tag:#cc0000; --attr:#a16800; --jkey:#00627a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#eaeaea;color:var(--fg);
+    font-family:-apple-system,Segoe UI,Roboto,sans-serif;padding:24px}
+  h1{font-size:18px;font-weight:600;margin:0 0 4px}
+  p.sub{margin:0 0 20px;color:#5a5a5a;font-size:13px}
+  .grid{display:flex;gap:20px;flex-wrap:wrap}
+  .panel{flex:1 1 420px;min-width:340px;border:1px solid var(--border);
+    border-radius:8px;overflow:hidden;background:var(--bg);
+    box-shadow:0 6px 20px #0000001a}
+  .titlebar{background:var(--chrome);padding:8px 12px;font-size:12px;
+    color:#000;border-bottom:1px solid var(--border);display:flex;
+    align-items:center;gap:8px}
+  .dots{display:flex;gap:6px}
+  .dots i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .tabs{display:flex;background:#f2f2f2;border-bottom:1px solid var(--border);font-size:12px}
+  .tab{padding:7px 14px;color:#333333b3;border-right:1px solid var(--border)}
+  .tab.active{color:#333;background:var(--bg);border-top:2px solid var(--accent);padding-top:5px}
+  .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+    color:#8a8a8a;padding:12px 14px 4px}
+  pre{margin:0;padding:2px 0 10px;font-family:Consolas,"Cascadia Code",monospace;
+    font-size:13px;line-height:1.55;overflow-x:auto}
+  .ln{display:flex}
+  .ln>.n{width:38px;flex:none;text-align:right;padding-right:14px;color:var(--gutter);user-select:none}
+  .ln.cur{background:var(--line)}
+  .ln.cur>.n{color:var(--gutter-active)}
+  .ln>.c{white-space:pre}
+  .sel{background:var(--sel);border-radius:2px}
+  .kw{color:var(--kw)} .fn{color:var(--fn)} .type{color:var(--type)}
+  .str{color:var(--str)} .num{color:var(--num)} .cm{color:var(--comment)}
+  .pu{color:var(--punct)} .tag{color:var(--tag)} .attr{color:var(--attr)} .jk{color:var(--jkey)}
+  /* Italic variant */
+  .italic .cm,.italic .kwc,.italic .param{font-style:italic}
+  .legend{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#444}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1px solid #0002}
 </style>
 </head>
 <body>
-  <div class="title">Crimson Red — Light preview</div>
-  <div class="editor">
-<code class="line"><span class="comment">// Example JavaScript</span></code>
-<code class="line"><span class="kw">const</span> <span class="fn">greet</span> = (<span class="punct">name</span>) => {</code>
-<code class="line">  <span class="kw">let</span> <span class="punct">msg</span> = <span class="str">"Hello, "</span> + <span class="punct">name</span>;</code>
-<code class="line">  console.<span class="fn">log</span>(<span class="punct">msg</span>);</code>
-<code class="line">};</code>
-<code class="line"></code>
-<code class="line"><span class="kw">class</span> <span class="type">Person</span> {</code>
-<code class="line">  <span class="kw">constructor</span>(<span class="punct">name</span>){ this.<span class="punct">name</span> = <span class="punct">name</span>; }</code>
-<code class="line">}</code>
+  <h1>Crimson Red — Light</h1>
+  <p class="sub">Left: regular · Right: italic (comments, control keywords &amp; parameters). Note red XML tags, teal JSON keys, yellow selection.</p>
+  <div class="grid">
+
+    <div class="panel">
+      <div class="titlebar"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>Crimson Red Light — Regular</div>
+      <div class="tabs"><span class="tab active">app.js</span><span class="tab">config.xml</span><span class="tab">data.json</span></div>
+
+      <div class="sec">JavaScript</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c"><span class="cm">// build a greeting</span></span></span>
+<span class="ln"><span class="n">2</span><span class="c"><span class="kw kwc">const</span> <span class="fn">greet</span> <span class="pu">=</span> (<span class="param">name</span>) <span class="pu">=></span> {</span></span>
+<span class="ln cur"><span class="n">3</span><span class="c">  <span class="kw kwc">return</span> <span class="str">`Hello, <span class="sel">${name}</span>`</span><span class="pu">;</span></span></span>
+<span class="ln"><span class="n">4</span><span class="c">};</span></span>
+<span class="ln"><span class="n">5</span><span class="c"><span class="kw kwc">class</span> <span class="type">Person</span> {</span></span>
+<span class="ln"><span class="n">6</span><span class="c">  <span class="fn">age</span> <span class="pu">=</span> <span class="num">42</span><span class="pu">;</span></span></span>
+<span class="ln"><span class="n">7</span><span class="c">}</span></span>
+      </pre>
+
+      <div class="sec">XML</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c"><span class="pu">&lt;</span><span class="tag">server</span> <span class="attr">port</span>=<span class="str">"8080"</span> <span class="attr">tls</span>=<span class="str">"true"</span><span class="pu">></span></span></span>
+<span class="ln"><span class="n">2</span><span class="c">  <span class="pu">&lt;</span><span class="tag">host</span><span class="pu">></span>localhost<span class="pu">&lt;/</span><span class="tag">host</span><span class="pu">></span></span></span>
+<span class="ln"><span class="n">3</span><span class="c"><span class="pu">&lt;/</span><span class="tag">server</span><span class="pu">></span></span></span>
+      </pre>
+
+      <div class="sec">JSON</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c">{</span></span>
+<span class="ln"><span class="n">2</span><span class="c">  <span class="jk">"name"</span>: <span class="str">"crimson"</span>,</span></span>
+<span class="ln"><span class="n">3</span><span class="c">  <span class="jk">"version"</span>: <span class="num">31</span>,</span></span>
+<span class="ln"><span class="n">4</span><span class="c">  <span class="jk">"stable"</span>: <span class="num">true</span></span></span>
+<span class="ln"><span class="n">5</span><span class="c">}</span></span>
+      </pre>
+    </div>
+
+    <div class="panel italic">
+      <div class="titlebar"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>Crimson Red Light — Italic</div>
+      <div class="tabs"><span class="tab active">app.js</span><span class="tab">config.xml</span><span class="tab">data.json</span></div>
+
+      <div class="sec">JavaScript</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c"><span class="cm">// build a greeting</span></span></span>
+<span class="ln"><span class="n">2</span><span class="c"><span class="kw kwc">const</span> <span class="fn">greet</span> <span class="pu">=</span> (<span class="param">name</span>) <span class="pu">=></span> {</span></span>
+<span class="ln cur"><span class="n">3</span><span class="c">  <span class="kw kwc">return</span> <span class="str">`Hello, <span class="sel">${name}</span>`</span><span class="pu">;</span></span></span>
+<span class="ln"><span class="n">4</span><span class="c">};</span></span>
+<span class="ln"><span class="n">5</span><span class="c"><span class="kw kwc">class</span> <span class="type">Person</span> {</span></span>
+<span class="ln"><span class="n">6</span><span class="c">  <span class="fn">age</span> <span class="pu">=</span> <span class="num">42</span><span class="pu">;</span></span></span>
+<span class="ln"><span class="n">7</span><span class="c">}</span></span>
+      </pre>
+
+      <div class="sec">XML</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c"><span class="pu">&lt;</span><span class="tag">server</span> <span class="attr">port</span>=<span class="str">"8080"</span> <span class="attr">tls</span>=<span class="str">"true"</span><span class="pu">></span></span></span>
+<span class="ln"><span class="n">2</span><span class="c">  <span class="pu">&lt;</span><span class="tag">host</span><span class="pu">></span>localhost<span class="pu">&lt;/</span><span class="tag">host</span><span class="pu">></span></span></span>
+<span class="ln"><span class="n">3</span><span class="c"><span class="pu">&lt;/</span><span class="tag">server</span><span class="pu">></span></span></span>
+      </pre>
+
+      <div class="sec">JSON</div>
+      <pre>
+<span class="ln"><span class="n">1</span><span class="c">{</span></span>
+<span class="ln"><span class="n">2</span><span class="c">  <span class="jk">"name"</span>: <span class="str">"crimson"</span>,</span></span>
+<span class="ln"><span class="n">3</span><span class="c">  <span class="jk">"version"</span>: <span class="num">31</span>,</span></span>
+<span class="ln"><span class="n">4</span><span class="c">  <span class="jk">"stable"</span>: <span class="num">true</span></span></span>
+<span class="ln"><span class="n">5</span><span class="c">}</span></span>
+      </pre>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#cc0000"></i>keyword / tag</span>
+    <span><i style="background:#00627a"></i>function / JSON key</span>
+    <span><i style="background:#a16800"></i>type / attribute</span>
+    <span><i style="background:#527000"></i>string</span>
+    <span><i style="background:#116200"></i>number / constant</span>
+    <span><i style="background:#7b7b7b"></i>comment</span>
+    <span><i style="background:#fddd7e"></i>selection</span>
   </div>
 </body>
 </html>

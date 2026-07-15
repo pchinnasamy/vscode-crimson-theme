@@ -1,15 +1,27 @@
 {
   "name": "light-red",
   "displayName": "Crimson Red",
-  "description": "A light theme with Red borders for Visual Studio Code.",
-  "version": "0.0.30",
+  "description": "Crimson-accented light and dark themes for VS Code, with regular and italic variants.",
+  "version": "0.0.31",
   "publisher": "PChin",
+  "icon": "Icon.png",
+  "keywords": [
+    "theme",
+    "crimson",
+    "red",
+    "light",
+    "dark",
+    "italic"
+  ],
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
     "Themes"
   ],
+  "scripts": {
+    "build": "node build-themes.js"
+  },
   "contributes": {
     "themes": [
       {
@@ -18,9 +30,19 @@
         "path": "./themes/crimson-red-light-theme.json"
       },
       {
+        "label": "Crimson Red Light Italic",
+        "uiTheme": "vs",
+        "path": "./themes/crimson-red-light-italic-theme.json"
+      },
+      {
         "label": "Crimson Red Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/crimson-red-dark-theme.json"
+      },
+      {
+        "label": "Crimson Red Dark Italic",
+        "uiTheme": "vs-dark",
+        "path": "./themes/crimson-red-dark-italic-theme.json"
       }
     ]
   },

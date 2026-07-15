@@ -1,5 +1,5 @@
 {
-  "name": "Crimson Red Dark",
+  "name": "Crimson Red Dark Italic",
   "type": "dark",
   "semanticHighlighting": true,
   "semanticTokenColors": {
@@ -2255,6 +2255,54 @@
       },
       "name": "Invalid",
       "scope": "invalid, invalid.illegal, invalid.broken, invalid.deprecated, invalid.unimplemented"
+    },
+    {
+      "scope": "comment, punctuation.definition.comment",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "comment.line, comment.block, comment.block.documentation",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "keyword.control",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "keyword.control.import.python, keyword.control.flow.python",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "markup.italic, markup.italic.markdown",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "variable.parameter, variable.parameter.function",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "variable.language.super, variable.language.this",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "entity.other.attribute-name.js, entity.other.attribute-name.ts, entity.other.attribute-name.jsx, entity.other.attribute-name.tsx",
+      "settings": {
+        "fontStyle": "italic"
+      }
     }
   ]
 }
