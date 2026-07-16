@@ -117,19 +117,38 @@ const SYNTAX_OVERRIDES = [
  * ------------------------------------------------------------------ */
 
 const ITALIC_RULES = [
+  // Comments
   { scope: 'comment, punctuation.definition.comment', settings: { fontStyle: 'italic' } },
   {
     scope: 'comment.line, comment.block, comment.block.documentation',
     settings: { fontStyle: 'italic' }
   },
+  // Control-flow keywords
   { scope: 'keyword.control', settings: { fontStyle: 'italic' } },
   {
     scope: 'keyword.control.import.python, keyword.control.flow.python',
     settings: { fontStyle: 'italic' }
   },
-  { scope: 'markup.italic, markup.italic.markdown', settings: { fontStyle: 'italic' } },
+  // Storage keywords / modifiers (const, let, static, public, async, ...)
+  {
+    scope: 'storage, storage.type, storage.modifier',
+    settings: { fontStyle: 'italic' }
+  },
+  // Types, classes, interfaces
+  {
+    scope:
+      'entity.name.type, entity.name.type.class, entity.other.inherited-class, support.class, support.type.primitive, support.type.builtin',
+    settings: { fontStyle: 'italic' }
+  },
+  // Language variables (this / self / super)
+  {
+    scope: 'variable.language, variable.language.super, variable.language.this',
+    settings: { fontStyle: 'italic' }
+  },
+  // Parameters
   { scope: 'variable.parameter, variable.parameter.function', settings: { fontStyle: 'italic' } },
-  { scope: 'variable.language.super, variable.language.this', settings: { fontStyle: 'italic' } },
+  // Markup / JSX attributes
+  { scope: 'markup.italic, markup.italic.markdown', settings: { fontStyle: 'italic' } },
   {
     scope:
       'entity.other.attribute-name.js, entity.other.attribute-name.ts, entity.other.attribute-name.jsx, entity.other.attribute-name.tsx',

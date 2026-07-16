@@ -2281,7 +2281,19 @@
       }
     },
     {
-      "scope": "markup.italic, markup.italic.markdown",
+      "scope": "storage, storage.type, storage.modifier",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "entity.name.type, entity.name.type.class, entity.other.inherited-class, support.class, support.type.primitive, support.type.builtin",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "variable.language, variable.language.super, variable.language.this",
       "settings": {
         "fontStyle": "italic"
       }
@@ -2293,7 +2305,7 @@
       }
     },
     {
-      "scope": "variable.language.super, variable.language.this",
+      "scope": "markup.italic, markup.italic.markdown",
       "settings": {
         "fontStyle": "italic"
       }
