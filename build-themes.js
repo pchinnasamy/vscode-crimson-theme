@@ -691,14 +691,22 @@ const DARK_COLORS = {
   'editor.selectionBackground': '#4d3c14',
   'editor.selectionForeground': '#ffffff',
   'editor.inactiveSelectionBackground': '#3a2f10',
-  'editor.selectionHighlightBackground': '#4d3c1466',
-  'editor.selectionHighlightBorder': '#00000000',
-  'editor.wordHighlightBackground': '#57575740',
-  'editor.wordHighlightStrongBackground': '#0e639c40',
-  'editor.findMatchBackground': '#845820',
-  'editor.findMatchBorder': '#d18616',
-  'editor.findMatchHighlightBackground': '#ea5c0055',
-  'editor.findMatchHighlightBorder': '#00000000',
+  // Occurrences of the selected/double-clicked word: teal, clearly off the
+  // gold selection, with a visible border.
+  'editor.selectionHighlightBackground': '#2f5d7066',
+  'editor.selectionHighlightBorder': '#4ec9d47a',
+  // Cursor-on-symbol semantic occurrences: read = blue, write = purple.
+  'editor.wordHighlightBackground': '#3d5a8055',
+  'editor.wordHighlightBorder': '#6a8cc0aa',
+  'editor.wordHighlightStrongBackground': '#5a3d8055',
+  'editor.wordHighlightStrongBorder': '#9a6ac0aa',
+  'editor.wordHighlightTextBackground': '#3d5a8055',
+  'editor.wordHighlightTextBorder': '#6a8cc0aa',
+  // Find: bright amber with a bright border (distinct from gold selection).
+  'editor.findMatchBackground': '#b5641e',
+  'editor.findMatchBorder': '#ffb454',
+  'editor.findMatchHighlightBackground': '#d9862066',
+  'editor.findMatchHighlightBorder': '#ffb45488',
   'editor.findRangeHighlightBackground': '#3a3a3a4d',
   'editor.rangeHighlightBackground': '#ffffff0b',
   'editor.hoverHighlightBackground': '#264f7840',
@@ -764,10 +772,17 @@ const DARK_COLORS = {
   'problemsInfoIcon.foreground': '#4ec9d4',
 
   // Diff
-  'diffEditor.insertedTextBackground': '#15572433',
-  'diffEditor.removedTextBackground': '#721c2433',
-  'diffEditor.insertedLineBackground': '#1557241f',
-  'diffEditor.removedLineBackground': '#721c241f',
+  // Diff: soft line bands + brighter, saturated word-level highlights so the
+  // exact changed characters pop within a changed line.
+  'diffEditor.insertedTextBackground': '#4bb85c66',
+  'diffEditor.removedTextBackground': '#e0556666',
+  'diffEditor.insertedLineBackground': '#2a6e3a40',
+  'diffEditor.removedLineBackground': '#7a2a3240',
+  'diffEditorGutter.insertedLineBackground': '#2a6e3a55',
+  'diffEditorGutter.removedLineBackground': '#7a2a3255',
+  'diffEditorOverview.insertedForeground': '#3fb95088',
+  'diffEditorOverview.removedForeground': '#d8505f88',
+  'diffEditor.diagonalFill': '#3a3a3a',
   'diffEditor.border': '#2a2a2a',
 
   // Panels / terminal
