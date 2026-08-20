@@ -43,6 +43,11 @@ const LIGHT_TO_DARK = {
 
 const ACCENT = '#cc0000'; // crimson, shared UI accent in both themes
 
+// Light mode "desk": recent VS Code rounds the editor group's corners, so a
+// slightly-grey chrome behind the white editor reads as a floating card
+// (the built-in Light Modern approach). Editor + active tab stay white.
+const LIGHT_CHROME = '#f5f5f5';
+
 /* ------------------------------------------------------------------ *
  * Syntax overrides (applied to BOTH regular + italic, after the base
  * catalog so they win). Written in LIGHT hex; transformed for dark.
@@ -195,18 +200,18 @@ const LIGHT_COLORS = {
   'activityBar.inactiveForeground': '#00000066',
   'activityBarBadge.foreground': '#ffffff',
   'activityBarBadge.background': ACCENT,
-  'activityBar.border': '#f0f0f0',
+  'activityBar.border': '#e5e5e5',
   'activityBar.activeBackground': '#ffffff',
   'activityBar.activeBorder': ACCENT,
 
   // Side bar
-  'sideBar.background': '#fdfdfd',
+  'sideBar.background': '#ffffff',
   'sideBar.foreground': '#343434',
   'sideBarSectionHeader.background': '#00000000',
   'sideBarSectionHeader.foreground': '#3f3f3f',
   'sideBarSectionHeader.border': '#00000010',
   'sideBarTitle.foreground': '#000000',
-  'sideBar.border': '#cc000030',
+  'sideBar.border': '#e5e5e5',
 
   // Lists (distinct focus / active / inactive / hover states)
   'list.hoverBackground': '#f2f2f2',
@@ -227,7 +232,7 @@ const LIGHT_COLORS = {
 
   // Status bar (visible border, was invisible)
   'statusBar.foreground': '#000000',
-  'statusBar.background': '#ffffff',
+  'statusBar.background': LIGHT_CHROME,
   'statusBar.border': '#e5e5e5',
   'statusBarItem.hoverBackground': '#00000010',
   'statusBar.debuggingBackground': '#cc0000',
@@ -241,15 +246,15 @@ const LIGHT_COLORS = {
   'statusBarItem.prominentBackground': '#cc000020',
 
   // Title bar
-  'titleBar.activeBackground': '#ffffff',
+  'titleBar.activeBackground': LIGHT_CHROME,
   'titleBar.activeForeground': '#000000',
-  'titleBar.inactiveBackground': '#f3f3f3',
+  'titleBar.inactiveBackground': LIGHT_CHROME,
   'titleBar.inactiveForeground': '#33333399',
   'titleBar.border': '#e5e5e5',
 
   // Command center
   'commandCenter.foreground': '#3f3f3f',
-  'commandCenter.background': '#f6f6f6',
+  'commandCenter.background': '#ffffff',
   'commandCenter.border': '#cc000030',
   'commandCenter.activeBackground': '#ececec',
   'commandCenter.activeBorder': '#cc000060',
@@ -337,7 +342,7 @@ const LIGHT_COLORS = {
   'editorGroupHeader.tabsBackground': '#ffffff',
   'editorGroupHeader.tabsBorder': '#e5e5e5',
   'editorGroupHeader.noTabsBackground': '#ffffff',
-  'editorGroup.emptyBackground': '#ffffff',
+  'editorGroup.emptyBackground': LIGHT_CHROME,
 
   // Bracket pair colorization
   'editorBracketHighlight.foreground1': '#cc0000',
@@ -386,7 +391,7 @@ const LIGHT_COLORS = {
 
   // Panels / terminal
   'panel.background': '#ffffff',
-  'panel.border': '#cc000030',
+  'panel.border': '#e5e5e5',
   'panelTitle.activeBorder': ACCENT,
   'panelTitle.activeForeground': '#424242',
   'panelTitle.inactiveForeground': '#424242bf',
@@ -425,7 +430,7 @@ const LIGHT_COLORS = {
   'tab.activeBackground': '#ffffff',
   'tab.activeBorder': ACCENT,
   'tab.activeBorderTop': '#00000000',
-  'tab.inactiveBackground': '#f2f2f2',
+  'tab.inactiveBackground': '#ffffff',
   'tab.inactiveForeground': '#333333b3',
   'tab.hoverBackground': '#ffffff',
   'tab.hoverForeground': '#333333',
