@@ -46,7 +46,7 @@ const ACCENT = '#cc0000'; // crimson, shared UI accent in both themes
 // Light mode "desk": recent VS Code rounds the editor group's corners, so a
 // slightly-grey chrome behind the white editor reads as a floating card
 // (the built-in Light Modern approach). Editor + active tab stay white.
-const LIGHT_CHROME = '#f5f5f5';
+const LIGHT_CHROME = '#ececec';
 
 /* ------------------------------------------------------------------ *
  * Syntax overrides (applied to BOTH regular + italic, after the base
@@ -569,10 +569,16 @@ const LIGHT_COLORS = {
   'charts.lines': '#61616180'
 };
 
-// Dark is a full theme built on the same structure, with backgrounds and
-// accents chosen for a #1e1e1e canvas. Selection mirrors the light theme's
-// yellow with a gold tint so the identity carries across.
-const DARK_BG = '#1e1e1e';
+// Dark uses a graduated elevation ladder so panels read as distinct tiers:
+// editor deepest, side bars up a step, activity bar higher, frame lightest
+// (Option A: subtle ~5-step gaps). Selection keeps the gold tint.
+const DARK_EDITOR = '#1a1a1a'; // darkest — editor + its card (tabs, gutter, minimap, breadcrumb, sticky scroll)
+const DARK_SURFACE = '#1f1f1f'; // primary/secondary side bar, bottom panel, terminal, inactive tabs
+const DARK_ACTIVITY = '#242424'; // activity bar
+const DARK_FRAME = '#2a2a2a'; // title bar, status bar, empty-editor void
+const DARK_ELEVATED = '#303030'; // floating widgets (suggest, hover, menu, quick input, notifications)
+const DARK_SEAM = '#2e2e2e'; // neutral borders between panels
+const DARK_BG = DARK_EDITOR; // editor background, referenced widely below
 const DARK_COLORS = {
   foreground: '#cccccc',
   focusBorder: '#5a5a5a',
@@ -582,22 +588,22 @@ const DARK_COLORS = {
 
   // Activity bar
   'activityBar.foreground': '#e0e0e0',
-  'activityBar.background': '#141414',
+  'activityBar.background': DARK_ACTIVITY,
   'activityBar.inactiveForeground': '#ffffff66',
   'activityBarBadge.foreground': '#ffffff',
   'activityBarBadge.background': ACCENT,
-  'activityBar.border': '#2a2a2a',
-  'activityBar.activeBackground': '#141414',
+  'activityBar.border': DARK_SEAM,
+  'activityBar.activeBackground': DARK_ACTIVITY,
   'activityBar.activeBorder': '#ff6b6b',
 
   // Side bar
-  'sideBar.background': '#181818',
+  'sideBar.background': DARK_SURFACE,
   'sideBar.foreground': '#c8c8c8',
   'sideBarSectionHeader.background': '#00000000',
   'sideBarSectionHeader.foreground': '#c8c8c8',
   'sideBarSectionHeader.border': '#ffffff10',
   'sideBarTitle.foreground': '#e0e0e0',
-  'sideBar.border': '#cc000040',
+  'sideBar.border': DARK_SEAM,
 
   // Lists
   'list.hoverBackground': '#232323',
@@ -618,8 +624,8 @@ const DARK_COLORS = {
 
   // Status bar
   'statusBar.foreground': '#d0d0d0',
-  'statusBar.background': '#141414',
-  'statusBar.border': '#2a2a2a',
+  'statusBar.background': DARK_FRAME,
+  'statusBar.border': DARK_SEAM,
   'statusBarItem.hoverBackground': '#ffffff12',
   'statusBar.debuggingBackground': '#cc0000',
   'statusBar.debuggingForeground': '#ffffff',
@@ -632,11 +638,11 @@ const DARK_COLORS = {
   'statusBarItem.prominentBackground': '#cc000040',
 
   // Title bar
-  'titleBar.activeBackground': '#191919',
+  'titleBar.activeBackground': DARK_FRAME,
   'titleBar.activeForeground': '#e0e0e0',
-  'titleBar.inactiveBackground': '#141414',
+  'titleBar.inactiveBackground': DARK_FRAME,
   'titleBar.inactiveForeground': '#a0a0a099',
-  'titleBar.border': '#2a2a2a',
+  'titleBar.border': DARK_SEAM,
 
   // Command center
   'commandCenter.foreground': '#cccccc',
@@ -649,7 +655,7 @@ const DARK_COLORS = {
   'menubar.selectionForeground': '#e0e0e0',
   'menubar.selectionBackground': '#ffffff1a',
   'menu.foreground': '#cccccc',
-  'menu.background': '#1f1f1f',
+  'menu.background': DARK_ELEVATED,
   'menu.selectionForeground': '#ffffff',
   'menu.selectionBackground': ACCENT,
   'menu.selectionBorder': '#00000000',
@@ -732,11 +738,11 @@ const DARK_COLORS = {
   'editorGutter.foldingControlForeground': '#c5c5c5',
   'editorGutter.commentRangeForeground': '#c5c5c5',
   'editorCodeLens.foreground': '#8a8a8a',
-  'editorGroup.border': '#2a2a2a',
-  'editorGroupHeader.tabsBackground': '#151515',
-  'editorGroupHeader.tabsBorder': '#2a2a2a',
-  'editorGroupHeader.noTabsBackground': '#151515',
-  'editorGroup.emptyBackground': DARK_BG,
+  'editorGroup.border': DARK_SEAM,
+  'editorGroupHeader.tabsBackground': DARK_EDITOR,
+  'editorGroupHeader.tabsBorder': DARK_SEAM,
+  'editorGroupHeader.noTabsBackground': DARK_EDITOR,
+  'editorGroup.emptyBackground': DARK_FRAME,
 
   // Bracket pair colorization
   'editorBracketHighlight.foreground1': '#ff6b6b',
@@ -753,7 +759,7 @@ const DARK_COLORS = {
   'editorInlayHint.typeForeground': '#8a8a8a',
   'editorInlayHint.parameterForeground': '#8a8a8a',
   'editorGhostText.foreground': '#6a6a6a',
-  'editorStickyScroll.background': '#151515',
+  'editorStickyScroll.background': DARK_EDITOR,
   'editorStickyScrollHover.background': '#232323',
 
   // Overview ruler
@@ -791,12 +797,12 @@ const DARK_COLORS = {
   'diffEditor.border': '#2a2a2a',
 
   // Panels / terminal
-  'panel.background': '#181818',
-  'panel.border': '#cc000040',
+  'panel.background': DARK_SURFACE,
+  'panel.border': DARK_SEAM,
   'panelTitle.activeBorder': '#ff6b6b',
   'panelTitle.activeForeground': '#e0e0e0',
   'panelTitle.inactiveForeground': '#a0a0a0',
-  'terminal.background': '#1a1a1a',
+  'terminal.background': DARK_SURFACE,
   'terminal.foreground': '#d0d0d0',
   'terminal.selectionBackground': '#4d3c1488',
   'terminalCursor.background': '#1e1e1e',
@@ -820,21 +826,21 @@ const DARK_COLORS = {
   'terminal.ansiYellow': '#d7ba7d',
 
   // Breadcrumbs
-  'breadcrumb.background': '#151515',
+  'breadcrumb.background': DARK_EDITOR,
   'breadcrumb.foreground': '#a0a0a0',
   'breadcrumb.focusForeground': '#e0e0e0',
   'breadcrumb.activeSelectionForeground': '#ff8f8f',
-  'breadcrumbPicker.background': '#1f1f1f',
+  'breadcrumbPicker.background': DARK_ELEVATED,
 
   // Tabs
   'tab.activeForeground': '#ffffff',
-  'tab.border': '#2a2a2a',
-  'tab.activeBackground': '#1f1f1f',
+  'tab.border': DARK_SEAM,
+  'tab.activeBackground': DARK_EDITOR,
   'tab.activeBorder': '#ff6b6b',
   'tab.activeBorderTop': '#00000000',
-  'tab.inactiveBackground': '#141414',
+  'tab.inactiveBackground': DARK_SURFACE,
   'tab.inactiveForeground': '#9a9a9a',
-  'tab.hoverBackground': '#1f1f1f',
+  'tab.hoverBackground': '#2a2a2a',
   'tab.hoverForeground': '#ffffff',
   'tab.unfocusedActiveBorder': '#cc000080',
   'tab.lastPinnedBorder': '#cc000040',
@@ -850,10 +856,10 @@ const DARK_COLORS = {
 
   // Editor widgets
   'editorWidget.foreground': '#cccccc',
-  'editorWidget.background': '#202020',
+  'editorWidget.background': DARK_ELEVATED,
   'editorWidget.border': '#cc000040',
   'editorWidget.resizeBorder': '#5a5a5a',
-  'editorSuggestWidget.background': '#202020',
+  'editorSuggestWidget.background': DARK_ELEVATED,
   'editorSuggestWidget.border': '#cc000040',
   'editorSuggestWidget.foreground': '#d4d4d4',
   'editorSuggestWidget.highlightForeground': '#ff6b6b',
@@ -861,24 +867,24 @@ const DARK_COLORS = {
   'editorSuggestWidget.selectedBackground': '#3a1f1f',
   'editorSuggestWidget.selectedForeground': '#ffffff',
   'editorHoverWidget.foreground': '#cccccc',
-  'editorHoverWidget.background': '#202020',
+  'editorHoverWidget.background': DARK_ELEVATED,
   'editorHoverWidget.border': '#cc000040',
   'pickerGroup.border': '#3a3a3a',
   'pickerGroup.foreground': '#ff8f8f',
-  'quickInput.background': '#1f1f1f',
+  'quickInput.background': DARK_ELEVATED,
   'quickInput.foreground': '#cccccc',
   'quickInputList.focusBackground': '#3a1f1f',
   'quickInputList.focusForeground': '#ff8f8f',
 
   // Debug
-  'debugToolBar.background': '#202020',
+  'debugToolBar.background': DARK_ELEVATED,
   'debugToolBar.border': '#2a2a2a',
-  'debugExceptionWidget.background': '#202020',
+  'debugExceptionWidget.background': DARK_ELEVATED,
   'debugExceptionWidget.border': '#2a2a2a',
 
   // Notifications
   'notifications.foreground': '#cccccc',
-  'notifications.background': '#202020',
+  'notifications.background': DARK_ELEVATED,
   'notifications.border': '#2a2a2a',
   'notificationToast.border': '#2a2a2a',
   'notificationsErrorIcon.foreground': '#f44747',
@@ -886,7 +892,7 @@ const DARK_COLORS = {
   'notificationsInfoIcon.foreground': '#4ec9d4',
   'notificationCenter.border': '#2a2a2a',
   'notificationCenterHeader.foreground': '#cccccc',
-  'notificationCenterHeader.background': '#181818',
+  'notificationCenterHeader.background': DARK_FRAME,
 
   // Git decoration
   'gitDecoration.addedResourceForeground': '#81b88b',
