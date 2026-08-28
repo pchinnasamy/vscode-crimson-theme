@@ -416,6 +416,14 @@ const LIGHT_COLORS = {
   'terminal.ansiRed': '#cd3131',
   'terminal.ansiWhite': '#555555',
   'terminal.ansiYellow': '#949800',
+  // Per-command status dots (needs shell integration) + find, palette-matched
+  'terminalCommandDecoration.successBackground': '#587c0c',
+  'terminalCommandDecoration.errorBackground': '#cd3131',
+  'terminalCommandDecoration.defaultBackground': '#9a9a9a',
+  'terminal.findMatchBackground': '#ffb85c',
+  'terminal.findMatchBorder': '#cc6a00',
+  'terminal.findMatchHighlightBackground': '#ea5c0055',
+  'terminal.findMatchHighlightBorder': '#00000000',
 
   // Breadcrumbs
   'breadcrumb.background': '#ffffff',
@@ -824,6 +832,14 @@ const DARK_COLORS = {
   'terminal.ansiRed': '#ff6666',
   'terminal.ansiWhite': '#cccccc',
   'terminal.ansiYellow': '#d7ba7d',
+  // Per-command status dots (needs shell integration) + find, palette-matched
+  'terminalCommandDecoration.successBackground': '#8dd17a',
+  'terminalCommandDecoration.errorBackground': '#ff6666',
+  'terminalCommandDecoration.defaultBackground': '#767676',
+  'terminal.findMatchBackground': '#b5641e',
+  'terminal.findMatchBorder': '#ffb454',
+  'terminal.findMatchHighlightBackground': '#d9862055',
+  'terminal.findMatchHighlightBorder': '#ffb45488',
 
   // Breadcrumbs
   'breadcrumb.background': DARK_EDITOR,
